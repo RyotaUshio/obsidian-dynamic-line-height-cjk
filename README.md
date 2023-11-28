@@ -1,8 +1,5 @@
-# Obsidian Sample Plugin
+# Obsidian Dynamic Line Height for CJK
 
-This is a modified version of https://github.com/obsidianmd/obsidian-sample-plugin.
+This [Obsidian.md](https://obsidian.md) plugin dynamically adjusts the height of each line (in Editing View) or paragraph (in Reading View) based on it contains CJK characters. This is useful because CJK characters typically requires more line height than characters used in European languages.
 
-- `*.ts` files are put in the `src` directory
-- The plugin class definition and settings-related code are separated into `main.ts` and `settings.ts`
-- Release GitHub action is already there
-  - Don't forget to go to `Settings > Actions > General > Workflow permissions` and turn on `Read and write permissions`
+Line height for lines and paragraphs containing CJK characters can be set via [Style Settings](https://github.com/mgmeyers/obsidian-style-settings).
