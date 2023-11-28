@@ -1,8 +1,16 @@
-/*
+/* @settings
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
-
+name: Dynamic Line Height for CJK
+id: dynamic-line-height-cjk
+settings:
+    - 
+        id: line-height-cjk
+        title: Line height for CJK lines and paragraphs
+        type: variable-number
+        default: 1.875
 */
+
+.markdown-preview-view .cjk,
+.markdown-source-view.mod-cm6 .cm-line.cjk {
+    line-height: var(--line-height-cjk);
+}

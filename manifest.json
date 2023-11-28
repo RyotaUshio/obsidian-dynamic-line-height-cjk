@@ -1,9 +1,9 @@
 {
-	"id": "sample-plugin",
-	"name": "Sample Plugin",
+	"id": "dynamic-line-height-cjk",
+	"name": "Dynamic Line Height for CJK",
 	"version": "0.1.0",
-	"minAppVersion": "1.4.16",
-	"description": "",
+	"minAppVersion": "1.3.5",
+	"description": "Dynamically adjust line height for lines & paragraphs containing CJK characters.",
 	"author": "Ryota Ushio",
 	"authorUrl": "https://github.com/RyotaUshio",
 	"fundingUrl": "https://www.buymeacoffee.com/ryotaushio",
