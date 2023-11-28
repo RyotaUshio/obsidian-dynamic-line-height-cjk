@@ -1,7 +1,7 @@
 {
 	"id": "dynamic-line-height-cjk",
 	"name": "Dynamic Line Height for CJK",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "1.3.5",
 	"description": "Dynamically adjust line height for lines & paragraphs containing CJK characters.",
 	"author": "Ryota Ushio",
