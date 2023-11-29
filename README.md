@@ -9,8 +9,8 @@ Line height for lines and paragraphs containing CJK characters can be set via [S
 1. [Install this plugin](#installation) and enable it.
 2. Install Style Settings and enable it. If it's already enabled, you might need to reload it.
 3. Customize the line height for CJK via Style Settings if necessary. This can be done by either of the followings:
-  1. Settings > Style Settings > Dynamic Line Height for CJK > Line height for CJK lines and paragraphs
-  2. Command Palette > Run the command "Style Settings: Show style settings view" > Dynamic Line Height for CJK > Line height for CJK lines and paragraphs
+    1. Settings > Style Settings > Dynamic Line Height for CJK > Line height for CJK lines and paragraphs
+    2. Command Palette > Run the command "Style Settings: Show style settings view" > Dynamic Line Height for CJK > Line height for CJK lines and paragraphs
 
 ## Installation
 
