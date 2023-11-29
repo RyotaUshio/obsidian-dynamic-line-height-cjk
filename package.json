@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-dynamic-line-height-cjk",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "An Obsidian.md plugin to dynamically adjust line height for lines & paragraphs containing CJK characters.",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
