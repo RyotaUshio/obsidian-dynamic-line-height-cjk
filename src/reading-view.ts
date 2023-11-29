@@ -4,7 +4,7 @@ import { MarkdownPostProcessorContext } from "obsidian";
 export const dynamicLineHeightPostProcessor = (plugin: DynamicLineHeightPlugin) => (el: HTMLElement, ctx: MarkdownPostProcessorContext) => {
     for (const paragraph of el.querySelectorAll('p, li')) {
         if (paragraph.textContent) {
-            if (Array.from(paragraph.textContent).some(char => plugin.isCJK(char))) {
+            if (plugin.containsCJK(paragraph.textContent)) {
                 paragraph.classList.add('cjk');
             }
         }

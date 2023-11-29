@@ -55,7 +55,7 @@ export default class DynamicLineHeightPlugin extends Plugin {
 		this._regexp = new RegExp(`[${pattern}]`);
 	}
 
-	isCJK(char: string): boolean {
-		return this._regexp.test(char);
+	containsCJK(line: string): boolean {
+		return this._regexp.test(line);
 	}
 }

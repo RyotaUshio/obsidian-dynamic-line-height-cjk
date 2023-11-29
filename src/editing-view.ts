@@ -105,7 +105,7 @@ function remake(plugin: DynamicLineHeightPlugin, state: EditorState, from?: numb
     to = to ?? state.doc.length;
     for (let i = state.doc.lineAt(from).number; i <= state.doc.lineAt(to).number; i++) {
         const line = state.doc.line(i);
-        if (Array.from(line.text).some(char => plugin.isCJK(char))) {
+        if (plugin.containsCJK(line.text)) {
             decorations.push(
                 Decoration.line({ class: 'cjk' }).range(line.from)
             )
