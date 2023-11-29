@@ -14,6 +14,6 @@ settings:
 */
 
 .markdown-preview-view .cjk,
-.markdown-source-view.mod-cm6 .cm-line.cjk {
+.markdown-source-view.mod-cm6 .cjk {
     line-height: var(--line-height-cjk);
 }
