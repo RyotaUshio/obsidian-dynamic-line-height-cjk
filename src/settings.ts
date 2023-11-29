@@ -56,11 +56,13 @@ export class DynamicLineHeightSettingTab extends PluginSettingTab {
 
     display(): void {
         this.containerEl.empty();
-        
+
+        new Setting(this.containerEl)
+            .setDesc('Choose which Unicode blocks should be included.');
+
         new Setting(this.containerEl)
             .setName('Chinese characters')
-            .setHeading()
-            .setDesc('Choose which Unicode blocks should be included.')
+            .setHeading();
 
         this.addToggleSetting('CJK Unified Ideographs')
             .setDesc('The most common CJK ideographs used in modern Chinese, Japanese, Korean and Vietnamese characters.');
