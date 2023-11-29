@@ -6,11 +6,12 @@ settings:
     - 
         id: line-height-cjk
         title: Line height for CJK lines and paragraphs
+        description: Note: As for the default theme, the line height is set to 1.5 by default, defined as a CSS variable --line-height-normal.
         type: variable-number-slider
         min: 1.0
         max: 3.0
         step: 0.01
-        default: 1.95
+        default: 1.85
 */
 
 .markdown-preview-view .cjk,
