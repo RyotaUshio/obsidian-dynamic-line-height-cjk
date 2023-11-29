@@ -6,8 +6,11 @@ settings:
     - 
         id: line-height-cjk
         title: Line height for CJK lines and paragraphs
-        type: variable-number
-        default: 1.875
+        type: variable-number-slider
+        min: 1.0
+        max: 3.0
+        step: 0.01
+        default: 1.95
 */
 
 .markdown-preview-view .cjk,
