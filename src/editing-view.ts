@@ -1,6 +1,27 @@
 import { Range, StateField, EditorState } from '@codemirror/state';
-import { ViewUpdate, DecorationSet, Decoration, EditorView, PluginValue, ViewPlugin } from '@codemirror/view';
-import { isCJK } from 'utils';
+import { DecorationSet, Decoration, EditorView } from '@codemirror/view';
+import DynamicLineHeightPlugin from 'main';
+
+
+/**
+ * At first, I tried to use a ViewPlugin to implement this feature, but it didn't work for notes with a callout, for example:
+ * 
+ * ---
+ * > [!NOTE] 
+ * > 
+ * 
+ * 日本語
+ * こんにちは
+ * 
+ * English
+ * Hello
+ * ---
+ * 
+ * I don't understand why, but the two lines in Japanese ("日本語", "こんにちは") were not line-decorated
+ * when the cursor is outside of the callout. (When it's inside the callout, the lines are decorated.)
+ * 
+ * So for now, I decided to use a StateField below instead, and it worked.
+ */
 
 // export const dynamicLineHeightViewPlugin = ViewPlugin.fromClass(
 //     class implements PluginValue {
@@ -16,7 +37,7 @@ import { isCJK } from 'utils';
 //                 update.changes.iterChangedRanges((fromA, toA, fromB, toB) => {
 //                     this.decorations = this.decorations.update({
 //                         add: this.remake(update.view, fromB, toB),
-//                         filter: () => true,
+//                         filter: () => false,
 //                         filterFrom: update.state.doc.lineAt(fromB).from,
 //                         filterTo: update.state.doc.lineAt(toB).from
 //                     });
@@ -51,17 +72,17 @@ import { isCJK } from 'utils';
 // });
 
 
-export const dynamicLineHeightField = StateField.define<DecorationSet>({
+export const dynamicLineHeightField = (plugin: DynamicLineHeightPlugin) => StateField.define<DecorationSet>({
     create(state) {
-        return Decoration.set(remake(state));
+        return Decoration.set(remake(plugin, state));
     },
     update(prev, tr) {
         if (tr.docChanged) {
             let ret = prev.map(tr.changes);
             tr.changes.iterChangedRanges((fromA, toA, fromB, toB) => {
                 ret = ret.update({
-                    add: remake(tr.state, fromB, toB),
-                    filter: () => true,
+                    add: remake(plugin, tr.state, fromB, toB),
+                    filter: () => false,
                     filterFrom: tr.state.doc.lineAt(fromB).from,
                     filterTo: tr.state.doc.lineAt(toB).from
                 });
@@ -69,6 +90,7 @@ export const dynamicLineHeightField = StateField.define<DecorationSet>({
             return ret;
         } else {
             return prev;
+            // return tr.startState.doc.length ? prev : Decoration.set(remake(tr.state));
         }
     },
     provide(field) {
@@ -76,16 +98,16 @@ export const dynamicLineHeightField = StateField.define<DecorationSet>({
     }
 });
 
-function remake(state: EditorState, from?: number, to?: number): Range<Decoration>[] {
+function remake(plugin: DynamicLineHeightPlugin, state: EditorState, from?: number, to?: number): Range<Decoration>[] {
     const decorations: Range<Decoration>[] = [];
 
     from = from ?? 0;
     to = to ?? state.doc.length;
     for (let i = state.doc.lineAt(from).number; i <= state.doc.lineAt(to).number; i++) {
         const line = state.doc.line(i);
-        if (Array.from(line.text).some(char => isCJK(char))) {
+        if (Array.from(line.text).some(char => plugin.isCJK(char))) {
             decorations.push(
-                Decoration.line({ class: 'cjk' }).range(line.from, line.from)
+                Decoration.line({ class: 'cjk' }).range(line.from)
             )
         }
     }
