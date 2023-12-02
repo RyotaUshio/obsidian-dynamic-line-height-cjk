@@ -4,6 +4,8 @@ This [Obsidian.md](https://obsidian.md) plugin dynamically adjusts the height of
 
 Line height for lines and paragraphs containing CJK characters can be set via [Style Settings](https://github.com/mgmeyers/obsidian-style-settings).
 
+Moreover, this plugin adds the `.cjk` CSS class to lines and paragraphs containing CJK characters. This allows more advanced styling via CSS snippets.
+
 ## Usage
 
 1. [Install this plugin](#installation) and enable it.
