@@ -11,8 +11,12 @@ settings:
         min: 1.0
         max: 3.0
         step: 0.01
-        default: 1.85
+        default: 1.65
 */
+
+:root {
+    --line-height-cjk: 1.65;
+}
 
 .markdown-preview-view .cjk,
 .markdown-source-view.mod-cm6 .cjk {
