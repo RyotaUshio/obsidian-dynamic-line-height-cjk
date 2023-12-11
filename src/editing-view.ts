@@ -108,15 +108,6 @@ function remake(plugin: DynamicLineHeightPlugin, state: EditorState, from?: numb
     for (let i = state.doc.lineAt(from).number; i <= state.doc.lineAt(to).number; i++) {
         const line = state.doc.line(i);
 
-        // Ignore codeblocks and math blocks
-        const node = tree.cursorAt(line.from, 1).node
-        if (node.name.contains('codeblock')) continue;
-        if (node.name.contains('math')) {
-            if (node.name !== 'formatting_formatting-math_formatting-math-begin_keyword_math') {
-                continue;
-            }
-        }
-
         if (plugin.containsCJK(line.text)) {
             decorations.push(
                 Decoration.line({ class: 'cjk' }).range(line.from)

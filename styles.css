@@ -19,6 +19,7 @@ settings:
 }
 
 .markdown-preview-view .cjk,
-.markdown-source-view.mod-cm6 .cjk {
+.markdown-source-view.mod-cm6 .cjk > :not(.cm-hmd-codeblock):not(.cm-math),
+.markdown-source-view.mod-cm6 .cjk:not(:has(> .cm-hmd-codeblock)):not(:has(> .cm-math)) {
     line-height: var(--line-height-cjk);
 }
