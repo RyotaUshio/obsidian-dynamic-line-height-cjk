@@ -16,15 +16,14 @@ Moreover, this plugin adds the `.cjk` CSS class to lines and paragraphs containi
 
 ## Installation
 
-Since this plugin is still in beta, it's not on the community plugin browser yet.
+You can find this plugin in the community plugin browser within Obsidian.
 
-But you can install the latest beta release using [BRAT](https://github.com/TfTHacker/obsidian42-brat):
+You can also install the latest beta release using [BRAT](https://github.com/TfTHacker/obsidian42-brat).
 
-1.  Install BRAT and enable it.
-2.  Go to `Options`. In the `Beta Plugin List` section, click on the `Add Beta plugin` button.
-3.  Copy and paste `RyotaUshio/obsidian-dynamic-line-height-cjk` in the pop-up prompt and click on **Add Plugin**.
-4.  _(Optional but highly recommended)_ Turn on `Auto-update plugins at startup` at the top of the page.
-5.  Go to `Community plugins > Installed plugins`. You will find “Dynamic Line Height for CJK” in the list. Click on the toggle button to enable it.
+1. Install the latest version of BRAT and enable it.
+2. Open the following URL in browser: `obsidian://brat?plugin=RyotaUshio/obsidian-dynamic-line-height-cjk`.
+3. Click the "Add Plugin" button.
+4. _(Optional but highly recommended)_ In the BRAT settings, turn on `Auto-update plugins at startup` at the top of the page.
 
 ## Support development
 
